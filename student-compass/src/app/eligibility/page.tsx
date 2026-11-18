@@ -105,7 +105,7 @@ export default function EligibilityPage() {
       <section aria-labelledby="status-title" className="bg-green text-paper">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[5fr_7fr] lg:gap-16 lg:py-20">
           <div>
-            <h2 id="status-title" className="text-4xl font-extrabold sm:text-5xl">
+            <h2 data-reveal id="status-title" className="text-4xl font-extrabold sm:text-5xl">
               Who can apply
             </h2>
             <p className="mt-4 max-w-md text-lg leading-relaxed text-paper/80">
@@ -135,14 +135,14 @@ export default function EligibilityPage() {
 
       <section aria-labelledby="routes-title" className="bg-paper">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-24">
-          <h2 id="routes-title" className="text-4xl font-extrabold text-green sm:text-5xl">
+          <h2 data-reveal id="routes-title" className="text-4xl font-extrabold text-green sm:text-5xl">
             Routes and what they ask for
           </h2>
           <div className="mt-12 border-t border-green/20">
             {routes.map((r) => {
               const count = courses.filter((c) => c.level === r.level).length;
               return (
-                <article key={r.level} className="grid gap-4 border-b border-green/20 py-9 lg:grid-cols-[4fr_8fr] lg:gap-12">
+                <article key={r.level} data-reveal className="grid gap-4 border-b border-green/20 py-9 lg:grid-cols-[4fr_8fr] lg:gap-12">
                   <div>
                     <h3 className="text-2xl font-bold text-green">{r.title}</h3>
                     {count > 0 && (
@@ -178,26 +178,26 @@ export default function EligibilityPage() {
       <section aria-labelledby="factors-title" className="border-y border-line bg-mist">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:py-24">
           <div>
-            <h2 id="factors-title" className="text-3xl font-extrabold text-green sm:text-4xl">
+            <h2 data-reveal id="factors-title" className="text-3xl font-extrabold text-green sm:text-4xl">
               What universities look at
             </h2>
             <ul className="mt-8 space-y-7">
               {factors.map((f) => (
-                <li key={f.title}>
+                <li key={f.title} data-reveal>
                   <h3 className="text-xl font-bold text-green">{f.title}</h3>
                   <p className="mt-1.5 max-w-lg leading-relaxed text-muted">{f.text}</p>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="rounded-[2rem] bg-green p-8 text-paper sm:p-10 lg:self-start">
+          <div data-reveal="right" className="rounded-[2rem] bg-green p-8 text-paper sm:p-10 lg:self-start">
             <h2 className="text-3xl font-extrabold sm:text-4xl">Before your session</h2>
             <p className="mt-3 leading-relaxed text-paper/80">
               You don&apos;t need to send any documents. It helps to have these to hand:
             </p>
             <ul className="mt-6 space-y-4">
               {bring.map((b) => (
-                <li key={b} className="flex gap-3 leading-relaxed">
+                <li key={b} data-reveal className="flex gap-3 leading-relaxed">
                   <svg viewBox="0 0 24 24" aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-brass">
                     <path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>

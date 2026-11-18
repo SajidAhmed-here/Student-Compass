@@ -21,7 +21,7 @@ export function CourseFinder() {
     <section aria-labelledby="finder-title" className="bg-paper">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-24">
         <div className="grid gap-10 lg:grid-cols-[1fr_2fr] lg:gap-16">
-          <div>
+          <div data-reveal>
             <h2 id="finder-title" className="text-4xl font-extrabold text-green sm:text-5xl">
               Find a course
             </h2>
@@ -31,7 +31,7 @@ export function CourseFinder() {
           </div>
 
           <div>
-            <Form action="/courses" className="rounded-3xl border border-line bg-mist/60 p-5 sm:p-7">
+            <Form action="/courses" data-reveal style={{ "--reveal-delay": "100ms" } as React.CSSProperties} className="rounded-3xl border border-line bg-mist/60 p-5 sm:p-7">
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="sm:col-span-2">
                   <label htmlFor="q" className="mb-2 block text-sm font-semibold text-green">

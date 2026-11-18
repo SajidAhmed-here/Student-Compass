@@ -9,6 +9,7 @@ type SiteConfig = {
   url: string;
   description: string;
   bookingFormUrl: string;
+  partnerFormUrl: string;
   bookingFormCourseField: string;
   contact: { email: string; phone: string; whatsapp: string; address: string };
   logoImage: string;
@@ -31,6 +32,9 @@ export const site: SiteConfig = {
    */
   bookingFormUrl: "https://forms.gle/v9jzVY23Z4MzAJtH9",
 
+  /** Google Form for agents, agencies and referrers ("Become a partner"). */
+  partnerFormUrl: "https://forms.gle/VLut748kTCEyRzGBA",
+
   /**
    * Optional: pre-fill the course name in your Google Form.
    * In Google Forms: ⋮ menu → "Get pre-filled link", type anything in the
@@ -41,8 +45,8 @@ export const site: SiteConfig = {
 
   /** Shown in the footer only when filled in. */
   contact: {
-    email: "",
-    phone: "",
+    email: "admin@studentcompasseducation.com",
+    phone: "+44 7741 352793",
     whatsapp: "",
     address: "",
   },
@@ -64,6 +68,8 @@ export const nav = [
   { href: "/resources", label: "Resources" },
   { href: "/about", label: "About us" },
 ] as const;
+
+export const footerNav = [...nav, { href: "/partners", label: "Partner with us" }] as const;
 
 export function bookingHref(courseTitle?: string) {
   const base = site.bookingFormUrl;

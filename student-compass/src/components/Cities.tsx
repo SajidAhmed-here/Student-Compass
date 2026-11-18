@@ -18,7 +18,7 @@ export function Cities() {
   return (
     <section aria-labelledby="cities-title" className="border-y border-line bg-mist">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
-        <div className="max-w-2xl">
+        <div data-reveal className="max-w-2xl">
           <h2 id="cities-title" className="text-4xl font-extrabold text-green sm:text-5xl">
             Choose your city
           </h2>
@@ -32,6 +32,7 @@ export function Cities() {
           {/* At a glance */}
           <aside
             aria-labelledby="glance-title"
+            data-reveal="left"
             className="rounded-[2rem] bg-green p-8 text-paper sm:p-10 lg:sticky lg:top-28"
           >
             <h3 id="glance-title" className="text-sm font-semibold text-brass">
@@ -74,8 +75,8 @@ export function Cities() {
 
           {/* City list */}
           <ul className="border-t border-green/20">
-            {all.map((c) => (
-              <li key={c.id} className="border-b border-green/20">
+            {all.map((c, i) => (
+              <li key={c.id} data-reveal style={{ "--reveal-delay": `${i * 50}ms` } as React.CSSProperties} className="border-b border-green/20">
                 <Link
                   href={`/courses?city=${c.id}`}
                   className="group grid grid-cols-[1fr_auto] items-baseline gap-x-6 gap-y-1 py-5 sm:grid-cols-[11rem_1fr_auto]"

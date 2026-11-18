@@ -125,9 +125,17 @@ export function HeroSlider() {
               hidden={i !== index}
               className="col-start-1 row-start-1 max-w-3xl"
             >
-              <Heading className="text-display font-extrabold">{s.title}</Heading>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-paper/85 sm:text-xl">{s.body}</p>
-              <div className="mt-9 flex flex-wrap items-center gap-3">
+              <Heading className="rise text-display font-extrabold">{s.title}</Heading>
+              <p
+                className="rise mt-6 max-w-xl text-lg leading-relaxed text-paper/85 sm:text-xl"
+                style={{ "--rise-delay": "120ms" } as React.CSSProperties}
+              >
+                {s.body}
+              </p>
+              <div
+                className="rise mt-9 flex flex-wrap items-center gap-3"
+                style={{ "--rise-delay": "240ms" } as React.CSSProperties}
+              >
                 <BookButton size="lg" />
                 <Link
                   href={s.link.href}

@@ -51,4 +51,13 @@ export const pageImages = {
   about: u("photo-1529156069898-49953e39b3ac", 1800),
   eligibility: u("photo-1434030216411-0b793f4b4173", 1800),
   guide: u("photo-1456513080510-7bf3a84b82f8", 1800),
+  howItWorks: u("photo-1531545514256-b1400bc00f31", 1800),
+  courses: u("photo-1606761568499-6d2451b23c66", 1800),
+};
+
+export const partnerImages = {
+  hero: u("photo-1521791136064-7986c2920216", 2000),
+  agents: u("photo-1551836022-d5d88e9218df"),
+  agencies: u("photo-1600880292203-757bb62b4baf"),
+  referrers: u("photo-1515187029135-18ee286d815b"),
 };

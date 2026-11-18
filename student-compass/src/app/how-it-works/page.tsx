@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
+import { pageImages } from "@/data/media";
 import { BookButton } from "@/components/BookButton";
 import { ClosingCta } from "@/components/HomeSections";
 import { cities } from "@/data/cities";
@@ -101,6 +102,7 @@ export default function HowItWorksPage() {
       <PageHeader
         title="How it works"
         lede="We help you find the right course and apply. The university makes the decisions. Here's what happens at each step."
+        image={{ src: pageImages.howItWorks, alt: "Students looking at a laptop together and smiling" }}
       >
         <BookButton size="lg" />
       </PageHeader>
@@ -111,7 +113,7 @@ export default function HowItWorksPage() {
           <ol className="relative">
             <span aria-hidden="true" className="absolute left-[1.5rem] top-3 bottom-3 w-px bg-green/20" />
             {steps.map((s, i) => (
-              <li key={s.title} className="relative grid grid-cols-[3rem_1fr] gap-6 pb-12 last:pb-0">
+              <li key={s.title} data-reveal className="relative grid grid-cols-[3rem_1fr] gap-6 pb-12 last:pb-0">
                 <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-green text-lg font-bold text-brass">
                   {i + 1}
                 </span>
@@ -138,7 +140,7 @@ export default function HowItWorksPage() {
 
       <section aria-labelledby="roles-title" className="border-y border-line bg-mist">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-24">
-          <h2 id="roles-title" className="text-3xl font-extrabold text-green sm:text-4xl">
+          <h2 data-reveal id="roles-title" className="text-3xl font-extrabold text-green sm:text-4xl">
             Who does what
           </h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -147,7 +149,7 @@ export default function HowItWorksPage() {
                 <h3 className={`text-2xl font-bold ${i === 0 ? "text-paper" : "text-green"}`}>{r.title}</h3>
                 <ul className="mt-6 space-y-3">
                   {r.items.map((it) => (
-                    <li key={it} className="flex gap-3 leading-relaxed">
+                    <li key={it} data-reveal className="flex gap-3 leading-relaxed">
                       <span aria-hidden="true" className={`mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full ${i === 0 ? "bg-brass" : "bg-green"}`} />
                       {it}
                     </li>
@@ -162,7 +164,7 @@ export default function HowItWorksPage() {
       <section aria-labelledby="faq-title" className="bg-paper">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[4fr_8fr] lg:gap-16 lg:py-24">
           <div>
-            <h2 id="faq-title" className="text-3xl font-extrabold text-green sm:text-4xl">
+            <h2 data-reveal id="faq-title" className="text-3xl font-extrabold text-green sm:text-4xl">
               Questions students ask
             </h2>
             <p className="mt-4 leading-relaxed text-muted">

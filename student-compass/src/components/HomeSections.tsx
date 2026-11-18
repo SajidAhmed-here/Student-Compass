@@ -29,7 +29,7 @@ export function WhyChooseUs() {
   return (
     <section aria-labelledby="why-title" className="bg-paper">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[5fr_7fr] lg:gap-16 lg:py-28">
-        <div className="lg:sticky lg:top-28 lg:self-start">
+        <div data-reveal className="lg:sticky lg:top-28 lg:self-start">
           <h2 id="why-title" className="text-4xl font-extrabold text-green sm:text-5xl">
             Why choose us
           </h2>
@@ -39,8 +39,8 @@ export function WhyChooseUs() {
           <BookButton variant="green" className="mt-8" />
         </div>
         <ul className="border-t border-green/20">
-          {reasons.map((r) => (
-            <li key={r.title} className="grid gap-2 border-b border-green/20 py-7 sm:grid-cols-[2.25rem_1fr] sm:gap-x-4">
+          {reasons.map((r, i) => (
+            <li key={r.title} data-reveal style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties} className="grid gap-2 border-b border-green/20 py-7 sm:grid-cols-[2.25rem_1fr] sm:gap-x-4">
               <svg viewBox="0 0 24 24" aria-hidden="true" className="mt-1 h-6 w-6 text-brass-dark">
                 <path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -83,7 +83,7 @@ export function Guideline() {
   return (
     <section aria-labelledby="guide-title" className="bg-green text-paper">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div data-reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <h2 id="guide-title" className="text-4xl font-extrabold sm:text-5xl">
               Our guideline
@@ -100,7 +100,7 @@ export function Guideline() {
         <ol className="relative mt-16 grid gap-10 lg:grid-cols-5 lg:gap-6">
           <span aria-hidden="true" className="absolute left-[1.375rem] top-2 bottom-2 w-px bg-paper/25 lg:left-2 lg:right-[calc((100%_-_6rem)/5_-_1.375rem)] lg:top-[1.375rem] lg:bottom-auto lg:h-px lg:w-auto" />
           {guidelineSteps.map((s, i) => (
-            <li key={s.title} className="relative grid grid-cols-[2.75rem_1fr] gap-5 lg:block">
+            <li key={s.title} data-reveal style={{ "--reveal-delay": `${i * 110}ms` } as React.CSSProperties} className="relative grid grid-cols-[2.75rem_1fr] gap-5 lg:block">
               <span className="relative z-10 flex h-11 w-11 items-center justify-center rounded-full border-2 border-brass bg-green text-lg font-bold text-brass">
                 {i + 1}
               </span>
@@ -126,11 +126,13 @@ export function ClosingCta({
   return (
     <section className="bg-brass">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-5 py-16 sm:px-8 md:flex-row md:items-center md:justify-between lg:py-20">
-        <div className="max-w-2xl">
+        <div data-reveal className="max-w-2xl">
           <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">{title}</h2>
           <p className="mt-3 text-lg leading-relaxed text-ink/80">{text}</p>
         </div>
-        <BookButton variant="green" size="lg" className="shrink-0" />
+        <div data-reveal style={{ "--reveal-delay": "120ms" } as React.CSSProperties} className="shrink-0">
+          <BookButton variant="green" size="lg" />
+        </div>
       </div>
     </section>
   );

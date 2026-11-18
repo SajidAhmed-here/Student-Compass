@@ -43,7 +43,7 @@ export default function AboutPage() {
       <section className="bg-paper">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 md:grid-cols-2 lg:gap-20 lg:py-24">
           <div>
-            <h2 className="text-3xl font-extrabold text-green sm:text-4xl">The problem</h2>
+            <h2 data-reveal className="text-3xl font-extrabold text-green sm:text-4xl">The problem</h2>
             <p className="mt-5 text-lg leading-relaxed text-muted">
               Choosing a course means sorting through hundreds of options, entry requirements
               written in unfamiliar terms, and advice that isn&apos;t always clear about who it
@@ -52,7 +52,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div>
-            <h2 className="text-3xl font-extrabold text-green sm:text-4xl">Our approach</h2>
+            <h2 data-reveal className="text-3xl font-extrabold text-green sm:text-4xl">Our approach</h2>
             <p className="mt-5 text-lg leading-relaxed text-muted">
               We start with a free conversation about where you are and where you want to go. Then
               we match you with courses that fit, from foundation years to master&apos;s, in cities
@@ -64,12 +64,12 @@ export default function AboutPage() {
 
       <section aria-labelledby="principles-title" className="bg-green text-paper">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-24">
-          <h2 id="principles-title" className="max-w-2xl text-4xl font-extrabold sm:text-5xl">
+          <h2 data-reveal id="principles-title" className="max-w-2xl text-4xl font-extrabold sm:text-5xl">
             What we stand by
           </h2>
           <ul className="mt-14 grid gap-x-12 gap-y-10 border-t border-paper/20 pt-10 sm:grid-cols-2 lg:grid-cols-4">
             {principles.map((p) => (
-              <li key={p.title}>
+              <li key={p.title} data-reveal>
                 <h3 className="text-xl font-bold text-brass-light">{p.title}</h3>
                 <p className="mt-3 leading-relaxed text-paper/80">{p.text}</p>
               </li>
@@ -80,7 +80,7 @@ export default function AboutPage() {
 
       <section className="bg-paper">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-20 sm:px-8 md:flex-row md:items-center md:justify-between">
-          <h2 className="max-w-xl text-3xl font-extrabold text-green sm:text-4xl">
+          <h2 data-reveal className="max-w-xl text-3xl font-extrabold text-green sm:text-4xl">
             See what you could study.
           </h2>
           <div className="flex flex-wrap gap-3">

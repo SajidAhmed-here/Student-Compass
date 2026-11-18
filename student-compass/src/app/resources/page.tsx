@@ -25,10 +25,13 @@ export default function ResourcesPage() {
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
           <Link
             href={`/resources/${featured.slug}`}
-            className="group grid overflow-hidden rounded-[2rem] border border-line bg-white md:grid-cols-2"
+            data-reveal
+            className="group grid overflow-hidden rounded-[2rem] border border-line bg-white transition-[box-shadow,transform] duration-500 hover:-translate-y-1 hover:shadow-[0_28px_56px_-28px_rgba(32,54,56,0.45)] md:grid-cols-2"
           >
-            <div className="relative min-h-64 md:min-h-96">
-              <Photo src={pageImages.guide} alt="" sizes="(min-width: 768px) 50vw, 100vw" />
+            <div className="relative min-h-64 overflow-hidden md:min-h-96">
+              <div className="absolute inset-0 transition-transform duration-[1200ms] ease-[var(--ease-out-quart)] group-hover:scale-105">
+                <Photo src={pageImages.guide} alt="" sizes="(min-width: 768px) 50vw, 100vw" />
+              </div>
             </div>
             <div className="flex flex-col justify-center p-8 sm:p-12">
               <p className="text-sm font-semibold text-brass-dark">{featured.category}</p>
@@ -42,10 +45,10 @@ export default function ResourcesPage() {
 
           <ul className="mt-8 grid gap-6 md:grid-cols-2">
             {rest.map((g) => (
-              <li key={g.slug}>
+              <li key={g.slug} data-reveal>
                 <Link
                   href={`/resources/${g.slug}`}
-                  className="group flex h-full flex-col rounded-[2rem] border border-line bg-white p-8 transition-colors hover:border-green sm:p-10"
+                  className="group flex h-full flex-col rounded-[2rem] border border-line bg-white p-8 transition-[border-color,transform,box-shadow] duration-500 hover:-translate-y-1 hover:border-green hover:shadow-[0_28px_56px_-28px_rgba(32,54,56,0.45)] sm:p-10"
                 >
                   <p className="text-sm font-semibold text-brass-dark">{g.category}</p>
                   <h2 className="mt-3 text-2xl font-bold text-green group-hover:underline">{g.title}</h2>

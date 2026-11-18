@@ -202,14 +202,16 @@ export function CourseBrowser() {
         ) : (
           <ul className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {results.map((c) => (
-              <li key={c.id} className="flex flex-col">
-                <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-white">
-                  <div className="relative aspect-[16/10] bg-green">
-                    <Photo
-                      src={courseImages[c.image]}
-                      alt=""
-                      sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
-                    />
+              <li key={c.id} data-reveal className="flex flex-col">
+                <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-white transition-[transform,box-shadow] duration-500 ease-[var(--ease-out-quart)] hover:-translate-y-1 hover:shadow-[0_28px_56px_-28px_rgba(32,54,56,0.45)]">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-green">
+                    <div className="absolute inset-0 transition-transform duration-[1200ms] ease-[var(--ease-out-quart)] group-hover:scale-105">
+                      <Photo
+                        src={courseImages[c.image]}
+                        alt=""
+                        sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+                      />
+                    </div>
                     <span className="absolute left-4 top-4 rounded-full bg-paper px-3 py-1 text-[0.8rem] font-semibold text-green shadow-sm">
                       {levelById[c.level].short}
                     </span>

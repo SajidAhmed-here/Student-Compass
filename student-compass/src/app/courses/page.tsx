@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { PageHeader } from "@/components/PageHeader";
+import { pageImages } from "@/data/media";
 import { CourseBrowser } from "@/components/CourseBrowser";
 import { BookButton } from "@/components/BookButton";
 import { ClosingCta } from "@/components/HomeSections";
@@ -19,6 +20,7 @@ export default function CoursesPage() {
       <PageHeader
         title="Courses"
         lede={`${courses.length} courses across ten UK cities and online. Found one you like? Book a free session and we'll help you check your eligibility and apply.`}
+        image={{ src: pageImages.courses, alt: "A modern university lecture theatre" }}
       >
         <BookButton size="lg" />
       </PageHeader>

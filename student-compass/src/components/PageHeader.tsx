@@ -16,12 +16,12 @@ export function PageHeader({ title, lede, image, children }: Props) {
         }`}
       >
         <div className="max-w-3xl">
-          <h1 className="text-5xl font-extrabold leading-[1.02] text-green sm:text-6xl">{title}</h1>
-          {lede && <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted sm:text-xl">{lede}</p>}
-          {children && <div className="mt-8">{children}</div>}
+          <h1 className="rise text-5xl font-extrabold leading-[1.02] text-green sm:text-6xl">{title}</h1>
+          {lede && <p style={{ "--rise-delay": "100ms" } as React.CSSProperties} className="rise mt-5 max-w-2xl text-lg leading-relaxed text-muted sm:text-xl">{lede}</p>}
+          {children && <div style={{ "--rise-delay": "200ms" } as React.CSSProperties} className="rise mt-8">{children}</div>}
         </div>
         {image && (
-          <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] rounded-tr-[6rem]">
+          <div className="rise relative aspect-[4/3] overflow-hidden rounded-[2rem] rounded-tr-[6rem]" style={{ "--rise-delay": "150ms" } as React.CSSProperties}>
             <Photo src={image.src} alt={image.alt} sizes="(min-width: 1024px) 40vw, 100vw" priority />
           </div>
         )}

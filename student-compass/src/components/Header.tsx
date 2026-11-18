@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { nav } from "@/config/site";
 import { Logo } from "./Logo";
-import { BookButton } from "./BookButton";
+import { BookButton, PartnerButton } from "./BookButton";
 
 export function Header() {
   const pathname = usePathname();
@@ -37,6 +37,13 @@ export function Header() {
     };
   }, [open]);
 
+  // Close the mobile menu whenever the route changes.
+  const [lastPath, setLastPath] = useState(pathname);
+  if (lastPath !== pathname) {
+    setLastPath(pathname);
+    setOpen(false);
+  }
+
   const transparent = overHero && !scrolled && !open;
   const tone = transparent || open ? "light" : "dark";
 
@@ -64,7 +71,7 @@ export function Header() {
                   <Link
                     href={item.href}
                     aria-current={active ? "page" : undefined}
-                    className={`relative rounded-full px-4 py-2 text-[0.95rem] font-medium transition-colors ${
+                    className={`relative rounded-full px-3 py-2 text-[0.95rem] font-medium transition-colors xl:px-4 ${
                       tone === "light"
                         ? "text-paper/90 hover:text-paper hover:bg-paper/10"
                         : "text-ink/80 hover:text-green hover:bg-mist"
@@ -72,7 +79,7 @@ export function Header() {
                   >
                     {item.label}
                     {active && (
-                      <span className="absolute inset-x-4 -bottom-0.5 h-0.5 rounded-full bg-brass" />
+                      <span className="absolute inset-x-3 -bottom-0.5 xl:inset-x-4 h-0.5 rounded-full bg-brass" />
                     )}
                   </Link>
                 </li>
@@ -81,7 +88,10 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5">
+          <span className="hidden sm:block lg:hidden xl:block">
+            <PartnerButton toPage size="sm" variant={tone === "light" ? "outline-light" : "outline"} />
+          </span>
           <span className="hidden sm:block">
             <BookButton size="sm" />
           </span>
@@ -125,6 +135,7 @@ export function Header() {
             </ul>
           </nav>
           <BookButton size="lg" className="mt-8 w-full" />
+          <PartnerButton toPage size="lg" variant="outline-light" className="mt-3 w-full" />
         </div>
       )}
     </header>

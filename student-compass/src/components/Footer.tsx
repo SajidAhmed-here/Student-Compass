@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { nav, site } from "@/config/site";
+import { footerNav, site } from "@/config/site";
 import { cities } from "@/data/cities";
 import { Logo } from "./Logo";
-import { BookButton } from "./BookButton";
+import { BookButton, PartnerButton } from "./BookButton";
 
 export function Footer() {
   const { email, phone, whatsapp, address } = site.contact;
@@ -10,20 +10,23 @@ export function Footer() {
   return (
     <footer className="bg-green-deep text-paper">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
-          <div className="max-w-sm">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.7fr_0.95fr_1.45fr] lg:gap-10">
+          <div className="max-w-sm sm:col-span-2 lg:col-span-1">
             <Logo tone="light" className="h-16 sm:h-20" />
             <p className="mt-5 text-paper/75 leading-relaxed">
               Independent guidance for students choosing a UK course, from foundation year to
               master&apos;s. Start with a free session.
             </p>
-            <BookButton className="mt-6" />
+            <div className="mt-6 flex flex-wrap gap-3">
+              <BookButton />
+              <PartnerButton variant="outline-light" />
+            </div>
           </div>
 
           <div>
             <h2 className="text-sm font-semibold text-brass">Explore</h2>
             <ul className="mt-4 space-y-3">
-              {nav.map((n) => (
+              {footerNav.map((n) => (
                 <li key={n.href}>
                   <Link href={n.href} className="text-paper/80 hover:text-paper">
                     {n.label}
@@ -49,15 +52,33 @@ export function Footer() {
           {hasContact ? (
             <div>
               <h2 className="text-sm font-semibold text-brass">Contact</h2>
-              <ul className="mt-4 space-y-3 text-paper/80">
-                {email && (
-                  <li>
-                    <a href={`mailto:${email}`} className="hover:text-paper">{email}</a>
-                  </li>
-                )}
+              <p className="mt-4 leading-relaxed text-paper/70">
+                Students, agents and agencies, we&apos;d love to hear from you.
+              </p>
+              <ul className="mt-5 space-y-4 text-paper/80">
                 {phone && (
                   <li>
-                    <a href={`tel:${phone.replace(/\s/g, "")}`} className="hover:text-paper">{phone}</a>
+                    <a href={`tel:${phone.replace(/\s/g, "")}`} className="group inline-flex items-center gap-3 hover:text-paper">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-paper/20 text-brass transition-colors group-hover:border-brass">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" />
+                        </svg>
+                      </span>
+                      {phone}
+                    </a>
+                  </li>
+                )}
+                {email && (
+                  <li>
+                    <a href={`mailto:${email}`} className="group inline-flex items-center gap-3 hover:text-paper">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-paper/20 text-brass transition-colors group-hover:border-brass">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <rect x="2.5" y="4.5" width="19" height="15" rx="2" />
+                          <path d="m3 6 9 7 9-7" />
+                        </svg>
+                      </span>
+                      <span className="min-w-0 [overflow-wrap:anywhere]">{email}</span>
+                    </a>
                   </li>
                 )}
                 {whatsapp && (
