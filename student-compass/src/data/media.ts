@@ -10,6 +10,7 @@ const u = (id: string, w = 1200) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=75`;
 
 export const heroImages = {
+  partners: u("photo-1573164574572-cb89e39749b4", 2400),
   london: u("photo-1513635269975-59663e0ac1ad", 2400),
   graduation: u("photo-1627556704290-2b1f5853ff78", 2400),
   study: u("photo-1522202176988-66273c2fd55f", 2400),

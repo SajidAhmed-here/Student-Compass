@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { heroImages } from "@/data/media";
 import { Photo } from "./Photo";
-import { BookButton } from "./BookButton";
+import { BookButton, PartnerButton } from "./BookButton";
 
 type Slide = {
   tab: string;
@@ -13,14 +13,28 @@ type Slide = {
   image: string;
   alt: string;
   link: { href: string; label: string };
+  /** Main button: the student booking form (default) or the partner form. */
+  cta?: "book" | "partner";
+  /** The page's single <h1>. */
+  h1?: boolean;
 };
 
 const slides: Slide[] = [
+  {
+    tab: "Partner with us",
+    title: "Become an agent. Grow with Student Compass.",
+    body: "Education agents, agencies and referrers across the UK partner with us. You introduce the student. We handle admissions and keep you updated at every stage.",
+    image: heroImages.partners,
+    alt: "A team of professionals in a meeting around a boardroom table",
+    link: { href: "/partners", label: "How partnering works" },
+    cta: "partner",
+  },
   {
     tab: "Start here",
     title: "Find your way to a UK degree.",
     body: "Free one-to-one guidance on foundation years, HNDs, top-up degrees and master's courses, in ten UK cities and online.",
     image: heroImages.london,
+    h1: true,
     alt: "Westminster and the River Thames in London",
     link: { href: "/courses", label: "Explore courses" },
   },
@@ -115,7 +129,7 @@ export function HeroSlider() {
       <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-end px-5 pb-10 pt-28 sm:px-8 sm:pb-14">
         <div className="grid">
           {slides.map((s, i) => {
-            const Heading = i === 0 ? "h1" : "h2";
+            const Heading = s.h1 ? "h1" : "h2";
             return (
             <div
               key={s.tab}
@@ -136,7 +150,7 @@ export function HeroSlider() {
                 className="rise mt-9 flex flex-wrap items-center gap-3"
                 style={{ "--rise-delay": "240ms" } as React.CSSProperties}
               >
-                <BookButton size="lg" />
+                {s.cta === "partner" ? <PartnerButton variant="brass" size="lg" /> : <BookButton size="lg" />}
                 <Link
                   href={s.link.href}
                   className="inline-flex h-14 items-center rounded-full border-2 border-paper/60 px-7 font-semibold text-paper transition-colors hover:bg-paper hover:text-green"
@@ -149,7 +163,7 @@ export function HeroSlider() {
           })}
         </div>
 
-        <div className="mt-14 grid grid-cols-4 gap-3 sm:gap-6" role="tablist" aria-label="Choose a slide">
+        <div className="mt-14 grid grid-cols-5 gap-2 sm:gap-6" role="tablist" aria-label="Choose a slide">
           {slides.map((s, i) => (
             <button
               key={s.tab}
